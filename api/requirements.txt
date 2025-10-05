@@ -1,0 +1,18 @@
+import os
+from http.server import BaseHTTPRequestHandler
+import json
+
+# This file is part of a serverless setup (like Vercel) and is now simplified.
+# The AI-related logic has been removed.
+
+class handler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        # This is a fallback handler. In a real scenario, you'd serve your index.html
+        # or handle other API routes if you had them.
+        self.send_response(200)
+        self.send_header('Content-type', 'application/json')
+        self.end_headers()
+        self.wfile.write(json.dumps({"message": "Hello! The AI endpoint has been removed."}).encode('utf-8'))
+
+# Note: The primary execution for this project is via app.py and gunicorn.
+# This serverless handler is kept minimal as the main app logic has shifted.
